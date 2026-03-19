@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Punto de Venta - TechStore</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- SweetAlert2 CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>TU STORE 📱</h1>
+            <p>Sistema de Punto de Venta - Para celulares y accesorios</p>
+        </div>
+
+        <div class="products-section">
+            <h2>📦 Productos Disponibles</h2>
+            <div class="products-grid" id="productsGrid"></div>
+        </div>
+
+        <div class="cart-section">
+            <h2>🛒 Carrito de Compras</h2>
+            <div class="cart-items" id="cartItems">
+                <div class="cart-empty">El carrito está vacío</div>
+            </div>
+
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span class="summary-label">Subtotal:</span>
+                    <span class="summary-value">Q<span id="subtotal">0.00</span></span>
+                </div>
+                <div class="summary-row">
+                    <span class="summary-label">Impuesto (16%):</span>
+                    <span class="summary-value">Q<span id="tax">0.00</span></span>
+                </div>
+                <div class="summary-row total">
+                    <span class="summary-label">TOTAL:</span>
+                    <span class="summary-value">Q<span id="total">0.00</span></span>
+                </div>
+            </div>
+
+            <button class="btn-checkout" id="checkoutBtn" onclick="proceedToCheckout()">Procesar Venta</button>
+            <button class="btn-clear" id="clearBtn" onclick="clearCart()">Limpiar Carrito</button>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div class="modal" id="checkoutModal">
+        <div class="modal-content">
+            <h3>✅ Confirmar Venta</h3>
+            <p>¿Deseas procesar esta venta?</p>
+            <div class="modal-amount">Q<span id="modalTotal">0.00</span></div>
+            <div class="modal-buttons">
+                <button class="modal-btn-confirm" onclick="confirmCheckout()">Confirmar</button>
+                <button class="modal-btn-cancel" onclick="closeModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
